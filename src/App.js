@@ -20,9 +20,7 @@ function App() {
     getRequest();
   }, []);
 
-  useEffect(() => {
-    console.log(quote);
-  }, [quote, quoteNum]);
+  useEffect(() => {}, [quote, quoteNum]);
 
   return (
     <div className="App">
