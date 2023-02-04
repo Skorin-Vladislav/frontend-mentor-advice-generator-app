@@ -13,4 +13,150 @@ $dark-blue: hsl(218, 23%, 16%);
 .App {
   background-color: $dark-blue;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Manrope", sans-serif;
+}
+
+.quote-wrapper {
+  background-color: $grayish-blue;
+  text-align: center;
+  margin: auto 1em;
+  border-radius: 8px;
+  padding: 1em 1em;
+  min-height: 300px;
+  min-width: 90%;
+  max-width: 90%;
+
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+
+.advice-number {
+  color: $neon-green;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75em;
+}
+
+.quote {
+  color: $light-cyan;
+  font-size: 28px;
+  padding: 0.5em;
+  &::before {
+    content: open-quote;
+  }
+  &::after {
+    content: close-quote;
+  }
+}
+
+.progress {
+  position: relative;
+  height: 10px;
+  width: 100%;
+  border: 10px solid $dark-blue;
+  border-radius: 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.progress .color {
+  position: absolute;
+  background-color: $neon-green;
+  width: 0px;
+  height: 10px;
+  border-radius: 15px;
+  animation: progress 4s infinite linear;
+}
+
+.line {
+  height: 2px;
+  min-width: 40%;
+  background-color: $light-cyan;
+}
+
+.decoration {
+  height: 15px;
+  width: 4px;
+  background-color: $light-cyan;
+  border-radius: 5px;
+
+  margin: 1em 0;
+}
+
+.decorations-wrapper {
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  div:nth-child(2) {
+    display: flex;
+    gap: 5px;
+    position: relative;
+  }
+
+  div div:nth-child(1) {
+    @extend .decoration;
+  }
+  div div:nth-child(2) {
+    @extend .decoration;
+  }
+
+  div:first-child {
+    @extend .line;
+  }
+
+  div:last-child {
+    @extend .line;
+  }
+}
+
+.btn-wrapper {
+  background-color: $neon-green;
+  border-radius: 50%;
+
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  cursor: pointer;
+  transform: translateY(80%);
+  transition: all 0.8s;
+  &:hover {
+    -webkit-box-shadow: 0px 0px 30px 20px rgba(82, 255, 168, 0.3);
+    -moz-box-shadow: 0px 0px 30px 20px rgba(82, 255, 168, 0.3);
+    box-shadow: 0px 0px 30px 20px rgba(82, 255, 168, 0.3);
+  }
+
+  &:active {
+    transition: all 0.2s;
+    transform: translateY(70%);
+  }
+}
+
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+  25% {
+    width: 50%;
+  }
+  50% {
+    width: 75%;
+  }
+  75% {
+    width: 85%;
+  }
+  100% {
+    width: 100%;
+  }
 }
